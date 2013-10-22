@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022042922) do
-
-  create_table "gal4_lines", :force => true do |t|
-    t.string  "name"
-    t.integer "integer"
-    t.string  "p_element_backbone"
-    t.string  "gene"
-    t.string  "ch_location"
-    t.integer "copynumber"
-  end
+ActiveRecord::Schema.define(:version => 20131022040906) do
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
