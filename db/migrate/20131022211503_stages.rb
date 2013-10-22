@@ -4,6 +4,8 @@ class Stages < ActiveRecord::Migration
       t.string :name
       t.string :time_range
       t.integer :order
+      t.timestamps
+    end
   end
 
   def down

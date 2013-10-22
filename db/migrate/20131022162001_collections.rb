@@ -4,6 +4,8 @@ class Collections < ActiveRecord::Migration
       t.string :name
       t.integer :gal4_line_id
       t.integer :user_id
+      t.timestamps
+    end
   end
 
   def down

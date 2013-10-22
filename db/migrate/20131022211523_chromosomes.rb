@@ -3,6 +3,8 @@ class Chromosomes < ActiveRecord::Migration
     create_table :chromosomes do |t|
       t.string :location
       t.integer :gal4_line_id
+      t.timestamps
+    end
   end
 
   def down

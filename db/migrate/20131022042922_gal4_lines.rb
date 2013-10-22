@@ -8,6 +8,7 @@ class Gal4Lines < ActiveRecord::Migration
       t.text          :regulatory_sequence
       t.string        :gene
       t.integer       :copynumber
+      t.timestamps
     end
   end
 
