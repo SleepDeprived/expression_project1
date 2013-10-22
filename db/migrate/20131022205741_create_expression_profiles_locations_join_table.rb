@@ -7,5 +7,6 @@ class CreateExpressionProfilesLocationsJoinTable < ActiveRecord::Migration
   end
 
   def down
+    drop_table :expression_profiles_locations
   end
 end
