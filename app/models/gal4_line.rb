@@ -4,6 +4,6 @@ class Gal4Line < ActiveRecord::Base
 
   # has_many :chromosomes, :expression_profiles
   has_many :users, through: :collections
-  belongs_to :collections
+  has_many :collections
 
 end

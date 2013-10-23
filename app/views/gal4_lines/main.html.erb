@@ -1,0 +1,25 @@
+<h1>main landing page</h1>
+
+<div>
+  <%= form_tag(gal4_lines_path, method: :get) do %>
+  <%= label_tag  "Search by gene name"%>
+  <%= text_field_tag "gene", nil, placeholder: "gene name" %>
+  <%= submit_tag "Search", name: "search by gene" %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_tag("/results", method: :get) do %>
+  <%= label_tag "Location of expression" %>
+  <%= text_field_tag "location", nil, placeholder: "location" %>
+  <%= label_tag "time of expression" %>
+  <%= text_field_tag "time", nil, placeholder: "stage" %>
+  <%= submit_tag "Search", name: "search by location" %>
+  <% end %>
+</div>
+
+<%= link_to "Login", login_path %>
+
+<%= link_to 'Sign Up', new_user_path %>
+
+

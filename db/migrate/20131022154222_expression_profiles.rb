@@ -5,6 +5,7 @@ class ExpressionProfiles < ActiveRecord::Migration
       t.integer      :start_stage_id
       t.integer      :end_stage_id
       t.string       :assessed_by
+      t.text         :comments
       t.timestamps
     end
   end

@@ -5,19 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    @user = User.new(params[:user])
+    if @user.save
+      redirect_to('/login')
+    else
+      render :new
+    end
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
 

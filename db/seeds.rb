@@ -21,8 +21,8 @@ u1 = User.create(first_name: "tom", last_name: "metzger", email: "metzgert@gmail
 c1 = Collection.create(name: "main")
 
 gal1 = Gal4Line.create(name: "A51-Gal4", p_element_backbone: "P{GawB}", regulatory_sequence: "enhancer trap")
-
 gal2 = Gal4Line.create(name: "5053A-Gal4", p_element_backbone: "P{GawB}", regulatory_sequence: "enhancer trap")
+gal3 = Gal4Line.create(name: "twist-Gal4", regulatory_sequence: "1.4kb HindIII ClaI fragment from twist genomic clone", gene: "twist")
 
 ep1 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS product")
 

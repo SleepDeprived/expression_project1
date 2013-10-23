@@ -1,80 +1,44 @@
 ExpressionApp::Application.routes.draw do
 
 
-  root to: 'sessions#main'
+  root to: 'gal4_lines#main'
 
-  resources :users
-  resources :collections
+  resources :users #do
+  #   resources :collections
+  # end
+
   resources :gal4_lines
-  resources :expression_profiles
-  resources :chromosomes
-  resources :stages
-  resources :locations
-
-  get '/login'    => "session#new"
-  post '/login'   => "session#create"
 
 
+  get '/login'  => "session#new"
+  post '/login' => "session#create"
+  get '/logout' => "session#destroy"
+  get '/results'      => "gal4_lines#index"
+  get '/results/:id'  => "gal4_lines#show"
+  get '/dashboard'    => "users#show"
 
 
-
-
-
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
+#== Route Map
+# Generated on 23 Oct 2013 18:08
+#
+#          users GET    /users(.:format)               users#index
+#                POST   /users(.:format)               users#create
+#       new_user GET    /users/new(.:format)           users#new
+#      edit_user GET    /users/:id/edit(.:format)      users#edit
+#           user GET    /users/:id(.:format)           users#show
+#                PUT    /users/:id(.:format)           users#update
+#                DELETE /users/:id(.:format)           users#destroy
+#     gal4_lines GET    /gal4_lines(.:format)          gal4_lines#index
+#                POST   /gal4_lines(.:format)          gal4_lines#create
+#  new_gal4_line GET    /gal4_lines/new(.:format)      gal4_lines#new
+# edit_gal4_line GET    /gal4_lines/:id/edit(.:format) gal4_lines#edit
+#      gal4_line GET    /gal4_lines/:id(.:format)      gal4_lines#show
+#                PUT    /gal4_lines/:id(.:format)      gal4_lines#update
+#                DELETE /gal4_lines/:id(.:format)      gal4_lines#destroy
+#          login GET    /login(.:format)               session#new
+#                POST   /login(.:format)               session#create
+#         logout GET    /logout(.:format)              session#destroy
+#        results GET    /results(.:format)             gal4_lines#index
+#                GET    /results/:id(.:format)         gal4_lines#show
+#      dashboard GET    /dashboard(.:format)           users#show

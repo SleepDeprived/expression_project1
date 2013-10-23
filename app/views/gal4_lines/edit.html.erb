@@ -1,0 +1,23 @@
+<h1>Edit This Record</h1>
+<!-- OPTIMIZE change this record to read the name of teh stock -->
+
+<%= form_for (@gal4) do |f| %>
+  <%= f.label "Line Name" %>
+  <%= f.text_field :name %>
+  <%= f.label :version %>
+  <%= f.text_field :version %>
+  <%= f.label "ID" %>
+  <%= @gal4.id %>
+  <%= f.label "Associated Gene" %>
+  <%= f.text_field :gene %>
+  <%= f.label "Number of p-element insertions" %>
+  <%= f.text_field :copynumber %>
+  <%= f.label "p-element backbone" %>
+  <%= f.text_field :p_element_backbone %>
+  <%= f.label "regulatory sequence" %>
+  <%= f.text_field :regulatory_sequence %>
+  <%= f.submit "Update" %>
+  <%= link_to "Cancel", :back %>
+<% end %>
+
+

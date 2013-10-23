@@ -1,0 +1,30 @@
+<h1>this shows a detailed result for the selected record</h1>
+
+<%= label_tag "Line Name" %>
+<%= @result.name %>
+<%= label_tag "Version" %>
+<%= @result.version %>
+<%= label_tag "ID" %>
+<%= @result.id %>
+<%#= @result.chromosome.location %>
+<%= label_tag "Associated Gene"%>
+<%= @result.gene %>
+<%= label_tag "Number of p-element insertions" %>
+<%= @result.copynumber %>
+
+<%#= @result.expression_profile do |expression| %>
+<%#= expression.start_stage %>
+<%#= expression.end_stage %>
+<%#= expression.locations do |place| %>
+<%#= place.name %>
+<%# end %>
+<%#= expression.assessed_by %>
+<%# end %>
+
+<%= label_tag "p-element backbone" %>
+<%= @result.p_element_backbone %>
+<%= label_tag "regulatory sequence" %>
+<%= @result.regulatory_sequence %>
+
+
+<%= link_to "edit", edit_gal4_line_path %>

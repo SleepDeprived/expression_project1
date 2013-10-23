@@ -1,0 +1,12 @@
+<h1>This form will return all of the records that match a set of search terms</h1>
+
+<ul>
+<% @gal4.each do |line| %>
+  <li>
+    <!-- image -->
+    <%= link_to "#{line.name}", line %>
+    <%= line.gene %>
+    <%= line.id %>
+  </li>
+<% end %>
+</ul>
