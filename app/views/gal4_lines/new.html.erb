@@ -1,0 +1,14 @@
+<h1>create a new gal4 line in the database</h1>
+<%= form_for(@gal4) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :p_element_backbone %>
+  <%= f.text_field :p_element_backbone%>
+  <%= f.label :gene %>
+  <%= f.text_field :gene %>
+  <%= f.label :chromosome %>
+  <%= f.select :chromosome, options_for_select(%w[X 2 3 4]) %>
+  <%= f.label :copynumber %>
+  <%= f.text_field :copynumber %>
+  <%= f.submit %>
+<% end %>

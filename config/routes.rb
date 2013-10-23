@@ -1,4 +1,26 @@
 ExpressionApp::Application.routes.draw do
+
+
+  root to: 'sessions#main'
+
+  resources :users
+  resources :collections
+  resources :gal4_lines
+  resources :expression_profiles
+  resources :chromosomes
+  resources :stages
+  resources :locations
+
+  get '/login'    => "session#new"
+  post '/login'   => "session#create"
+
+
+
+
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

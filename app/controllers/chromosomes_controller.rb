@@ -1,0 +1,3 @@
+class ChromosomesController < ApplicationController
+
+end
