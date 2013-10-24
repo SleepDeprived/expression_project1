@@ -3,9 +3,7 @@ ExpressionApp::Application.routes.draw do
 
   root to: 'gal4_lines#main'
 
-  resources :users #do
-  #   resources :collections
-  # end
+  resources :users
 
   resources :collections, only: [:create]
   resources :gal4_lines

@@ -15,9 +15,9 @@
 
 class Gal4Line < ActiveRecord::Base
 
-  attr_accessible :name, :version, :p_element_backbone, :gene, :regulatory_sequence, :copynumber, :expression_profiles_attributes
+  attr_accessible :name, :version, :p_element_backbone, :gene, :gene_symbol, :regulatory_sequence, :copynumber, :expression_profiles_attributes
 
-  # has_many :chromosomes, :expression_profiles
+  belongs_to :chromosome
   has_many :users, through: :collections
   has_many :collections
   has_many :expression_profiles

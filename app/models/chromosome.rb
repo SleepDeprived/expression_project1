@@ -13,6 +13,6 @@ class Chromosome < ActiveRecord::Base
 
   attr_accessible :location
 
-  belongs_to :gal4_line
+  has_many :gal4_lines
 
 end

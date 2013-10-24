@@ -22,12 +22,25 @@ c1 = Collection.create(name: "main")
 
 gal1 = Gal4Line.create(name: "A51-Gal4", p_element_backbone: "P{GawB}", regulatory_sequence: "enhancer trap")
 gal2 = Gal4Line.create(name: "5053A-Gal4", p_element_backbone: "P{GawB}", regulatory_sequence: "enhancer trap")
-gal3 = Gal4Line.create(name: "twist-Gal4", regulatory_sequence: "1.4kb HindIII ClaI fragment from twist genomic clone", gene: "twist")
+gal3 = Gal4Line.create(name: "twist-Gal4", regulatory_sequence: "1.4kb HindIII ClaI fragment from twist genomic clone", gene: "twist", gene_symbol: "twi")
+gal4 = Gal4Line.create(name: "dmef2-Gal4", gene: "myocyte enhancing factor 2", gene_symbol: "dmef2")
 
-ep1 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS product")
+epA51 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS-CD8-GFP")
+ep5053 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS-CD8-GFP")
+epTwi1 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS-LacZ")
+epTwi2 = ExpressionProfile.create(assessed_by: "IF/IHC for UAS-LacZ")
 
-ch1 = Chromosome.create(location: "3")
-ch2 = Chromosome.create(location: "3")
+ch1 = Chromosome.create(location: "X")
+ch1L = Chromosome.create(location: "X- left arm")
+ch1L = Chromosome.create(location: "X- right arm")
+ch2 = Chromosome.create(location: "2")
+ch2L = Chromosome.create(location: "2- left arm")
+ch2L = Chromosome.create(location: "2- right arm")
+ch3 = Chromosome.create(location: "3")
+ch3L = Chromosome.create(location: "3- left arm")
+ch3L = Chromosome.create(location: "3- right arm")
+ch4 = Chromosome.create(location: "X")
+
 
 
 stage1 = Stage.create(  name: "1",  time_range: "0 - 15 min AEL",       order: 1)
@@ -71,33 +84,65 @@ loc1 = Location.create(name: "somatic muscle")
 loc2 = Location.create(name: "muscle LO1")
 loc3 = Location.create(name: "muscle SBM")
 loc4 = Location.create(name: "muscle VT1")
+loc5 = Location.create(name: "mesoderm")
+loc6 = Location.create(name: "visceral muscle")
+loc7 = Location.create(name: "muscle prgenitors")
+loc8 = Location.create(name: "muscle VL1")
 
-loc6 = Location.create(name: "muscle VL1")
 
 
+# u1.collections << c1
+# c1.gal4_lines << gal1
+# c1.gal4_lines << gal2
 
 
-u1.collections << c1
+ep5053.stages
+ep5053.stages
 
-c1.gal4_lines << gal1
-c1.gal4_lines << gal2
+epA51.stages
+epA51.stages
 
-# UNDEFINED METHOD ERROR - potentially just reverse order
-# gal1.expression_profile << ep1
-# gal2.expression_profile << ep1
+epTwi1.stages (start stage6)
+epTwi1.stages (stop stage12)
+epTwi2.stages (start stage12)
+epTwi2.stages (stop stage16)
+
+
 
 # UNDEFINED METHOD ERROR
-# gal1.chromosomes << ch1
-# gal2.chromosomes << ch2
+# gal1.locations << loc1 << loc2 << loc3 << loc4
+# gal2.locations << loc1 << loc8
+# ep2.locations << loc5 << loc7
+# ep3.locations << loc7 << loc1
+
+# UNDEFINED METHOD ERROR - potentially just reverse order
+# gal1.expression_profiles << ep1
+# gal2.expression_profiles << ep1
+# gal3.expression_profiles << ep2 << ep3
+
+
+# UNDEFINED METHOD ERROR
+# gal1.chromosomes << ch3
+# gal2.chromosomes << ch3
+# gal3.chromosomes << ch2
 
 # how to add stages to the expression_profiles page and differentiate between start & end stages when stage_id comes from one table
 # stage13.expression_profiles << ep1
 
-# UNDEFINED METHOD ERROR
-# gal1.locations << loc1 << loc2 << loc3 << loc4
-# gal2.locations << loc1 << loc6
 
+gal1.expression_profiles << epA51
+gal1.chromosome << ch3
 
+gal2.expression_profiles << ep5053
+gal2.chromosome << ch3
+
+gal3.expression_profiles << epTwi1 << epTwi2
+gal3.chromosome << ch2
+
+# gal1.expression_profiles.first.locations << l1
+
+# query to pull out location
+# gal1.expression_profiles.first.locations.first
 
 
 

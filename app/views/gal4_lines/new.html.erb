@@ -5,8 +5,14 @@
     <%= f.text_field :name %>
   <%= f.label :version %>
     <%= f.text_field :version %>
+  <%= f.fields_for :chromosomes do |chromosome| %>
+          <%= chromosome.label :content, "Chromosome" %>
+          <%= chromosome.select :start_stage_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
+        <% end %>
   <%= f.label :p_element_backbone %>
     <%= f.text_field :p_element_backbone%>
+  <%= f.label :regulatory_sequence %>
+    <%= f.text_field :regulatory_sequence%>
   <%= f.label :gene %>
    <%= f.text_field :gene %>
   <%= f.label :copynumber %>
@@ -19,18 +25,17 @@
           <%= location.text_field :name %>
         <% end %>
 
-        <%= profile.label :content, "Start" %>
-          <%= profile.text_field :start_stage_id %>
-
+        <%= profile.label :content, "Expression begins during Stage" %>
+          <%#= profile.text_field :start_stage_id %>
+          <%= profile.select :start_stage_id, options_from_collection_for_select(@stages, :id, :name) %>
+        <%= profile.label :content, "Expression ends during Stage" %>
+          <%= profile.select :end_stage_id, options_from_collection_for_select(@stages, :id, :name) %>
           <%# stages_array = Stage.all.map {|stage| [stage.name, stage.id]} %>
             <%#= options_for_select(stages_array)  %>
 
           <%#= profile.collection_select :stage_id, Stage.all, :id, :name, {:prompt => "Select the stage when expression is first detected in these locations"} %>
-
-        <%= profile.label :content, "End" %>
-          <%= profile.text_field :end_stage_id %>
-        <%= profile.label :content, "Assessed using" %>
-          <%= profile.text_field :assessed_by %>
+        <%= profile.label :content, "Assessed using"%>
+          <%= profile.text_field :assessed_by, {:placeholder => "IF/IHC of UAS-GFP"} %>
       </p>
     <% end %>
   <%= submit_tag "Add Gal4" %>

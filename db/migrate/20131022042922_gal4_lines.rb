@@ -4,9 +4,11 @@ class Gal4Lines < ActiveRecord::Migration
     create_table :gal4_lines do |t|
       t.string        :name
       t.integer       :version
+      t.integer       :chromosome_id
       t.string        :p_element_backbone
       t.text          :regulatory_sequence
       t.string        :gene
+      t.string        :gene_symbol
       t.integer       :copynumber
       t.timestamps
     end

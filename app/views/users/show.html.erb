@@ -9,11 +9,11 @@
 
 <div>
   <%= form_tag("/results", method: :get) do %>
-    <%= label_tag "Location of expression" %>
-  <%= text_field_tag "location", nil, placeholder: "location" %>
-    <%= label_tag "time of expression" %>
-  <%= text_field_tag "time", nil, placeholder: "stage" %>
-    <%= submit_tag "Search", name: "search by location" %>
+  <%= label_tag "Search by location of expression" %>
+    <%= text_field_tag "location", nil, placeholder: "location" %>
+  <%#= label_tag "time of expression" %>
+    <%#= text_field_tag "time", nil, placeholder: "stage" %>
+  <%= submit_tag "Search", name: "search by location" %>
   <% end %>
 </div>
 

@@ -8,5 +8,6 @@ class Chromosomes < ActiveRecord::Migration
   end
 
   def down
+    drop_table :chromosomes
   end
 end

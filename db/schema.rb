@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20131022211523) do
     t.integer  "start_stage_id"
     t.integer  "end_stage_id"
     t.string   "assessed_by"
+    t.text     "comments"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20131022211523) do
     t.string   "p_element_backbone"
     t.text     "regulatory_sequence"
     t.string   "gene"
+    t.string   "gene_symbol"
     t.integer  "copynumber"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
