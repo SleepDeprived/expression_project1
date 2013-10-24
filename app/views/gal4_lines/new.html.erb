@@ -5,17 +5,19 @@
     <%= f.text_field :name %>
   <%= f.label :version %>
     <%= f.text_field :version %>
-  <%= f.fields_for :chromosomes do |chromosome| %>
+  <%= f.fields_for :chromosome_id do |chromosome| %>
           <%= chromosome.label :content, "Chromosome" %>
-          <%= chromosome.select :start_stage_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
+          <%= chromosome.select :chromosome_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
         <% end %>
   <%= f.label :p_element_backbone %>
     <%= f.text_field :p_element_backbone%>
   <%= f.label :regulatory_sequence %>
-    <%= f.text_field :regulatory_sequence%>
-  <%= f.label :gene %>
-   <%= f.text_field :gene %>
-  <%= f.label :copynumber %>
+    <%= f.text_field :regulatory_sequence, {:placeholder => "description or raw sequence (AATTGGCTTCA)"}%>
+  <%= f.label :content, "Gene Name" %>
+   <%= f.text_field :gene, {:placeholder => "twist"} %>
+  <%= f.label :content, "Gene Symbol"%>
+   <%= f.text_field :gene_symbol, {:placeholder => "twi"}  %>
+  <%= f.label :content, "Copy number"%>
     <%= f.text_field :copynumber %>
 
     <%= f.fields_for :expression_profiles do |profile| %>
@@ -36,6 +38,8 @@
           <%#= profile.collection_select :stage_id, Stage.all, :id, :name, {:prompt => "Select the stage when expression is first detected in these locations"} %>
         <%= profile.label :content, "Assessed using"%>
           <%= profile.text_field :assessed_by, {:placeholder => "IF/IHC of UAS-GFP"} %>
+        <%= profile.label :content, "Comments"%>
+          <%= profile.text_field :comments %>
       </p>
     <% end %>
   <%= submit_tag "Add Gal4" %>

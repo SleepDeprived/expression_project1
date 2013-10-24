@@ -85,59 +85,64 @@ loc2 = Location.create(name: "muscle LO1")
 loc3 = Location.create(name: "muscle SBM")
 loc4 = Location.create(name: "muscle VT1")
 loc5 = Location.create(name: "mesoderm")
-loc6 = Location.create(name: "visceral muscle")
+loc6 = Location.create(name: "pericardial cells")
 loc7 = Location.create(name: "muscle prgenitors")
 loc8 = Location.create(name: "muscle VL1")
 
 
 
-# u1.collections << c1
-# c1.gal4_lines << gal1
-# c1.gal4_lines << gal2
+          # u1.collections << c1
+          # c1.gal4_lines << gal1
+          # c1.gal4_lines << gal2
 
 
-ep5053.stages
-ep5053.stages
+ep5053.locations << loc1 << loc8
+epA51.locations << loc1 << loc2 << loc3 << loc4
+epTwi1.locations << loc5
+epTwi2.locations << loc1 << loc6 << loc7
 
-epA51.stages
-epA51.stages
+# ep5053.stages
+# ep5053.stages
 
-epTwi1.stages (start stage6)
-epTwi1.stages (stop stage12)
-epTwi2.stages (start stage12)
-epTwi2.stages (stop stage16)
+# epA51.stages
+# epA51.stages
 
-
-
-# UNDEFINED METHOD ERROR
-# gal1.locations << loc1 << loc2 << loc3 << loc4
-# gal2.locations << loc1 << loc8
-# ep2.locations << loc5 << loc7
-# ep3.locations << loc7 << loc1
-
-# UNDEFINED METHOD ERROR - potentially just reverse order
-# gal1.expression_profiles << ep1
-# gal2.expression_profiles << ep1
-# gal3.expression_profiles << ep2 << ep3
+# epTwi1.stages (start stage6)
+# epTwi1.stages (stop stage12)
+# epTwi2.stages (start stage12)
+# epTwi2.stages (stop stage16)
 
 
-# UNDEFINED METHOD ERROR
-# gal1.chromosomes << ch3
-# gal2.chromosomes << ch3
-# gal3.chromosomes << ch2
 
-# how to add stages to the expression_profiles page and differentiate between start & end stages when stage_id comes from one table
-# stage13.expression_profiles << ep1
+      # UNDEFINED METHOD ERROR
+      # gal1.locations << loc1 << loc2 << loc3 << loc4
+      # gal2.locations << loc1 << loc8
+      # ep2.locations << loc5 << loc7
+      # ep3.locations << loc7 << loc1
+
+      # UNDEFINED METHOD ERROR - potentially just reverse order
+      # gal1.expression_profiles << ep1
+      # gal2.expression_profiles << ep1
+      # gal3.expression_profiles << ep2 << ep3
+
+
+      # UNDEFINED METHOD ERROR
+      # gal1.chromosomes << ch3
+      # gal2.chromosomes << ch3
+      # gal3.chromosomes << ch2
+
+      # how to add stages to the expression_profiles page and differentiate between start & end stages when stage_id comes from one table
+      # stage13.expression_profiles << ep1
 
 
 gal1.expression_profiles << epA51
-gal1.chromosome << ch3
+# gal1.chromosome << ch3
 
 gal2.expression_profiles << ep5053
-gal2.chromosome << ch3
+# gal2.chromosome << ch3
 
 gal3.expression_profiles << epTwi1 << epTwi2
-gal3.chromosome << ch2
+# gal3.chromosome << ch2
 
 # gal1.expression_profiles.first.locations << l1
 

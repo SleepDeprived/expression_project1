@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20131022211523) do
   create_table "gal4_lines", :force => true do |t|
     t.string   "name"
     t.integer  "version"
+    t.integer  "chromosome_id"
     t.string   "p_element_backbone"
     t.text     "regulatory_sequence"
     t.string   "gene"

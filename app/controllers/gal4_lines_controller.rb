@@ -37,6 +37,7 @@ class Gal4LinesController < ApplicationController
 
   def create
     @gal4 = Gal4Line.new(params[:gal4_line])
+    binding.pry
     if @gal4.save
       redirect_to @gal4 # this won't work but I need to figure out how to pass across the session params of the user that is logged in
     else
