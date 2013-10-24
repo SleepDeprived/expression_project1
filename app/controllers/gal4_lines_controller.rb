@@ -12,6 +12,14 @@ class Gal4LinesController < ApplicationController
     #   params.keys.include?("search by location")
     #   Gal4Line.where(:location => params[:location], stage.name: params[:time])
     # else
+
+            # bar = Location.where(name: "test2")
+            # junk = bar.map{|record| record.expression_profiles}
+            # stuff = junk.map {|element| element[0][:gal4_line_id]}
+
+
+
+
     #   redirect_to :back
     end
 
@@ -21,14 +29,17 @@ class Gal4LinesController < ApplicationController
 
   def new
     @gal4 = Gal4Line.new
-    @expression = ExpressionProfile.new
-    binding.pry
+    # @expression = ExpressionProfile.new
+    1.times do
+      profile = @gal4.expression_profiles.build
+      1.times {profile.locations.build}
+    end
   end
 
   def create
     @gal4 = Gal4Line.new(params[:gal4_line])
     if @gal4.save
-      redirect_to("/gal4_lines/#{@gal4.id}") # this won't work but I need to figure out how to pass across the session params of the user that is logged in
+      redirect_to @gal4 # this won't work but I need to figure out how to pass across the session params of the user that is logged in
     else
       render :new
       flash[:error] = "This Gal4 line was not saved to the database."

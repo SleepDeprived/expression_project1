@@ -6,6 +6,8 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'nested_form'
+  # remember to run rails g nested_form:install
 
 
 # Gems used only for assets and not required

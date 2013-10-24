@@ -13,10 +13,12 @@
 
 class ExpressionProfile < ActiveRecord::Base
 
-  attr_accessible :assessed_by
+  attr_accessible :gal4_line_id, :start_stage_id, :end_stage_id, :assessed_by, :locations_attributes
 
   has_many :stages
   belongs_to :gal4_line
   has_and_belongs_to_many :locations
+
+  accepts_nested_attributes_for :locations
 
 end
