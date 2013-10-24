@@ -7,6 +7,7 @@ ExpressionApp::Application.routes.draw do
   #   resources :collections
   # end
 
+  resources :collections, only: [:create]
   resources :gal4_lines
 
 

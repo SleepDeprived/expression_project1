@@ -28,3 +28,8 @@
 
 
 <%= link_to "edit", edit_gal4_line_path %>
+
+<%= form_for(@collection) do |f| %>
+<%= f.hidden_field :gal4_line_id, value: @result.id %>
+<%= f.submit "Add to Collection" %>
+<% end %>

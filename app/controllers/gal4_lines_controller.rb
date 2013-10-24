@@ -1,7 +1,6 @@
 class Gal4LinesController < ApplicationController
 
-   def main
-    # this will be the landing page that everyone visiting the site can see, members will be able to login, new visitors can sign up and everyone will be able to directly search for stocks from this page
+  def main
   end
 
   def index
@@ -22,6 +21,8 @@ class Gal4LinesController < ApplicationController
 
   def new
     @gal4 = Gal4Line.new
+    @expression = ExpressionProfile.new
+    binding.pry
   end
 
   def create
@@ -30,13 +31,14 @@ class Gal4LinesController < ApplicationController
       redirect_to("/gal4_lines/#{@gal4.id}") # this won't work but I need to figure out how to pass across the session params of the user that is logged in
     else
       render :new
-      # flash some warning about why it didn't save
+      flash[:error] = "This Gal4 line was not saved to the database."
     end
   end
 
   def show
     # single record result from a search
     @result = Gal4Line.find(params[:id])
+    @collection = Collection.new
   end
 
   def edit
