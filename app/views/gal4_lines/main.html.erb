@@ -1,6 +1,7 @@
+
 <h1>main landing page</h1>
 
-<div>
+<div class="six columns">
   <%= form_tag(gal4_lines_path, method: :get) do %>
   <%= label_tag  "Search by gene name"%>
   <%= text_field_tag "gene", nil, placeholder: "gene name" %>

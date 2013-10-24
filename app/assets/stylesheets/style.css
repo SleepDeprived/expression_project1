@@ -1,0 +1,22 @@
+body {
+  /*font-family: "Helvetica", sans-serif;*/
+  font-family: "Georgia", serif;
+  letter-spacing: 0.4px;
+}
+
+
+nav {
+  height: 40px;
+  font-style: capitalize;
+}
+
+li {
+  float: left;
+  margin: 10px;
+
+}
+
+
+.search {
+
+}

@@ -17,7 +17,7 @@
    <%= f.text_field :gene, {:placeholder => "twist"} %>
   <%= f.label :content, "Gene Symbol"%>
    <%= f.text_field :gene_symbol, {:placeholder => "twi"}  %>
-  <%= f.label :content, "Copy number"%>
+  <%= f.label :content, "Number of insertions"%>
     <%= f.text_field :copynumber %>
 
     <%= f.fields_for :expression_profiles do |profile| %>
@@ -32,10 +32,6 @@
           <%= profile.select :start_stage_id, options_from_collection_for_select(@stages, :id, :name) %>
         <%= profile.label :content, "Expression ends during Stage" %>
           <%= profile.select :end_stage_id, options_from_collection_for_select(@stages, :id, :name) %>
-          <%# stages_array = Stage.all.map {|stage| [stage.name, stage.id]} %>
-            <%#= options_for_select(stages_array)  %>
-
-          <%#= profile.collection_select :stage_id, Stage.all, :id, :name, {:prompt => "Select the stage when expression is first detected in these locations"} %>
         <%= profile.label :content, "Assessed using"%>
           <%= profile.text_field :assessed_by, {:placeholder => "IF/IHC of UAS-GFP"} %>
         <%= profile.label :content, "Comments"%>
