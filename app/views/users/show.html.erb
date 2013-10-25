@@ -1,7 +1,7 @@
 <div class="band">
   <div class="container">
     <div class="twelve columns, offset-by-two">
-      <h3 class="pad_section">Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h3>
+      <h3 class="pad_section space-top">Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h3>
       <div class="five columns">
         <%= form_tag("/results", method: :get) do %>
           <%= label_tag  "Search by gene name"%>
@@ -10,7 +10,7 @@
         <% end %>
       </div>
 
-      <div class="five columns">
+      <div class="six columns">
         <%= form_tag("/results", method: :get) do %>
         <%= label_tag "Search by location of expression" %>
           <%= text_field_tag "location", nil, placeholder: "location" %>
@@ -21,9 +21,9 @@
       </div>
 
 
-      <a href="/gal4_lines/new" class="twelve columns">Add a new Gal4 line to the database</a>
+      <a href="/gal4_lines/new" class="twelve columns space-top">Add a new Gal4 line to the database</a>
 
-    <div class="twelve columns">
+    <div class="twelve columns space-top">
       <h4>Stock Collection:</h4>
       <% @user.collections.each do |collection| %>
         <%= link_to "#{collection.gal4_line.name}", "/gal4_lines/#{collection.gal4_line.id}" %>

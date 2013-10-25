@@ -72,6 +72,7 @@ li {
 
 a {
   text-decoration: none;
+  color: rgba(40, 20, 20, 1);
 }
 
 .nav_bar{
@@ -107,6 +108,9 @@ label {
   border: 5px;
   border-color: rgba(0, 0, 0, 1);
 
+}
+.space-top {
+  margin-top: 25px;
 }
 
 .pad_section{

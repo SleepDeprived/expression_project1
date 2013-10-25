@@ -16,29 +16,36 @@
 
 
 
+
+
         <% @result.expression_profiles.each do |expression| %>
           <div class="fourteen columns, expression">
-            <div class="four columns">
-              <ul>
-                <li class="two columns, offset-by-one"> <%= label_tag "Expressed in:"%> </li>
-                <% expression.locations.each do |place| %>
-                  <li class="two columns, offset-by-two">
-                    <%= place.name %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-            <div class="five columns">
-              <%= label_tag "Expression begins during:"%>
-                <%= @start_stage %>
-                <%= @start_time %>
-            </div>
-            <div class="five columns">
-              <%= label_tag "Expression ends during:"%>
-                <%= @end_stage %>
-                <%= @end_time %>
-            </div>
-            <div class="eight columns">
+            <div class="sixteen columns space-top">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span <%= label_tag "Expressed in:"%> </span>
+                      <% expression.locations.each do |place| %>
+                      <div>
+                        <%= place.name %>
+                      </div>
+                      <% end %>
+                    </td>
+                    <td>    <span>
+                      <%= label_tag "Expression begins during:"%>
+                      <%= @start_stage %>
+                      <%= @start_time %>
+                    </span></td>
+                    <td>      <span>
+                      <%= label_tag "Expression ends during:"%>
+                      <%= @end_stage %>
+                      <%= @end_time %>
+                    </span></td>
+                  </tr>
+                </tbody>
+              </table>
+            <div class="eight columns space-top">
               <%= label_tag "Assessed using:"%>
                 <%= expression.assessed_by %>
             </div>
@@ -49,14 +56,14 @@
           </div>
         <% end %>
 
-      <div class="sixteen columns">
+      <div class="sixteen columns space-top">
         <%= label_tag "p-element backbone" %>
         <%= @result.p_element_backbone %>
         <%= label_tag "regulatory sequence" %>
         <%= @result.regulatory_sequence %>
       </div>
 
-      <div class="sixteen columns">
+      <div class="sixteen columns space-top">
         <%= link_to "edit", edit_gal4_line_path %>
 
         <%= form_for(@collection) do |f| %>
