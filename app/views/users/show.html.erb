@@ -1,27 +1,34 @@
-<h3>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h3>
-<div>
-  <%= form_tag("/results", method: :get) do %>
-    <%= label_tag  "Search by gene name"%>
-  <%= text_field_tag "gene", nil, placeholder: "gene name" %>
-    <%= submit_tag "Search", name: "search by gene" %>
-  <% end %>
+<div class="band">
+  <div class="container">
+    <div class="twelve columns, offset-by-two">
+      <h3 class="pad_section">Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h3>
+      <div class="five columns">
+        <%= form_tag("/results", method: :get) do %>
+          <%= label_tag  "Search by gene name"%>
+        <%= text_field_tag "gene", nil, placeholder: "gene name" %>
+          <%= submit_tag "Search", name: "search by gene" %>
+        <% end %>
+      </div>
+
+      <div class="five columns">
+        <%= form_tag("/results", method: :get) do %>
+        <%= label_tag "Search by location of expression" %>
+          <%= text_field_tag "location", nil, placeholder: "location" %>
+        <%#= label_tag "time of expression" %>
+          <%#= text_field_tag "time", nil, placeholder: "stage" %>
+        <%= submit_tag "Search", name: "search by location" %>
+        <% end %>
+      </div>
+
+
+      <a href="/gal4_lines/new" class="twelve columns">Add a new Gal4 line to the database</a>
+
+    <div class="twelve columns">
+      <h4>Stock Collection:</h4>
+      <% @user.collections.each do |collection| %>
+        <%= link_to "#{collection.gal4_line.name}", "/gal4_lines/#{collection.gal4_line.id}" %>
+      <% end %>
+    </div>
+    </div> <!-- column end -->
+  </div> <!-- end container -->
 </div>
-
-<div>
-  <%= form_tag("/results", method: :get) do %>
-  <%= label_tag "Search by location of expression" %>
-    <%= text_field_tag "location", nil, placeholder: "location" %>
-  <%#= label_tag "time of expression" %>
-    <%#= text_field_tag "time", nil, placeholder: "stage" %>
-  <%= submit_tag "Search", name: "search by location" %>
-  <% end %>
-</div>
-
-
-<a href="/gal4_lines/new" class="add_gal4">Add a new Gal4 line to the database</a>
-
-<h4>Stock Collection:</h4>
-<% @user.collections.each do |collection| %>
-  <%= link_to "#{collection.gal4_line.name}", "/gal4_lines/#{collection.gal4_line.id}" %>
-<% end %>
-

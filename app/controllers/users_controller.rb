@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.nil?
+      redirect_to('/login')
+      flash[:notice] = "Please login to access the user dashboard"
+    end
   end
 
 
