@@ -29,6 +29,7 @@ class Gal4LinesController < ApplicationController
     @stages = Stage.all
     @chromosomes = Chromosome.all
     # @expression = ExpressionProfile.new
+    # 1.times {@gal4.chromosome.build}
     1.times do
       profile = @gal4.expression_profiles.build
       1.times {profile.locations.build}
@@ -48,10 +49,23 @@ class Gal4LinesController < ApplicationController
   def show
     # single record result from a search
     @result = Gal4Line.find(params[:id])
+    if @result.expression_profiles.first.start_stage_id == nil
+      @start_stage = ""
+      @start_time = ""
+      @end_stage = ""
+      @end_time = ""
+    else
+      @start_stage = Stage.find(@result.expression_profiles.first.start_stage_id).name
+      @start_time = Stage.find(@result.expression_profiles.first.start_stage_id).time_range
+      @end_stage = Stage.find(@result.expression_profiles.first.end_stage_id).name
+      @end_time = Stage.find(@result.expression_profiles.first.end_stage_id).time_range
+    end
+
     @collection = Collection.new
   end
 
   def edit
+    @stages = Stage.all
     if @user.nil?
       flash[:notice] = "You need to be signed in to edit a page."
       redirect_to login_path

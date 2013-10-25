@@ -1,7 +1,9 @@
 
-<h1>main landing page</h1>
+<h1>expression info</h1>
 
-<div class="six columns">
+<%= image_tag "5053.png" %>
+
+<div class="eight columns">
   <%= form_tag(gal4_lines_path, method: :get) do %>
   <%= label_tag  "Search by gene name"%>
   <%= text_field_tag "gene", nil, placeholder: "gene name" %>
@@ -19,8 +21,8 @@
   <% end %>
 </div>
 
-<%= link_to "Login", '/login' %>
+<%#= link_to "Login", '/login' %>
 
-<%= link_to 'Sign Up', new_user_path %>
+<%#= link_to 'Sign Up', new_user_path %>
 
 

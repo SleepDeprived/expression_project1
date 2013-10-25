@@ -22,7 +22,7 @@ class Gal4Line < ActiveRecord::Base
   has_many :collections
   has_many :expression_profiles
 
-  accepts_nested_attributes_for :expression_profiles
+  accepts_nested_attributes_for :expression_profiles, :chromosome
 
 
 end

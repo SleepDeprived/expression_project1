@@ -1,22 +1,80 @@
 body {
-  /*font-family: "Helvetica", sans-serif;*/
-  font-family: "Georgia", serif;
-  letter-spacing: 0.4px;
+  font-family: "Helvetica", sans-serif;
+  /*font-family: "Georgia", serif;*/
+  color: rgba(40, 20, 20, 1);
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  background-color: rgba(254, 252, 250, 1);
 }
 
+h1 {
+  font-size: 5em;
+  margin: 0px auto;
+  font-family: "Georgia", serif;
+}
+
+h2 {
+  font-size: 3em;
+  font-family: "Georgia", serif;
+}
+
+h3 {
+  font-size: 2.6em;
+  font-family: "Georgia", serif;
+}
+
+h4 {
+  font-size: 1.8em;
+  font-family: "Georgia", serif;
+}
+
+img {
+  max-width: 600px;
+  width: 100%;
+}
 
 nav {
   height: 40px;
-  font-style: capitalize;
+  padding-bottom: 20px;
+  text-decoration: uppercase;
+  float: right;
 }
+
 
 li {
   float: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav_bar{
+  font-family: "Georgia", serif;
+  font-size: 0.8em;
+
+  text-transform: uppercase;
+  color: rgba(40, 20, 20, 1);
   margin: 10px;
-
 }
 
-
-.search {
-
+label {
+  font-weight: bold;
+  font-family: "Georgia", serif;
+  margin-right: 7px;
+  margin-left: 15px;
+  /*color: rgba(50, 50, 50, 0.9);*/
 }
+
+.select_a_line {
+  padding-bottom: 20px;
+}
+
+.login {
+  margin: 0 auto;
+}
+
+.search_results {
+  padding-bottom: 20px;
+}
+

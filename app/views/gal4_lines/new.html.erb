@@ -1,24 +1,25 @@
-<h1>create a new gal4 line in the database</h1>
+<h2>create a new gal4 line in the database</h2>
 <%= flash[:error] %>
 <%= form_for(@gal4) do |f| %>
   <%= f.label :name %>
     <%= f.text_field :name %>
   <%= f.label :version %>
     <%= f.text_field :version %>
-  <%= f.fields_for :chromosome_id do |chromosome| %>
-          <%= chromosome.label :content, "Chromosome" %>
-          <%= chromosome.select :chromosome_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
-        <% end %>
-  <%= f.label :p_element_backbone %>
-    <%= f.text_field :p_element_backbone%>
-  <%= f.label :regulatory_sequence %>
-    <%= f.text_field :regulatory_sequence, {:placeholder => "description or raw sequence (AATTGGCTTCA)"}%>
-  <%= f.label :content, "Gene Name" %>
+
+  <%#= f.fields_for :chromosome do |c| %>
+          <%#= c.label :content, "Chromosome" %>
+          <%#= c.select :chromosome_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
+        <%# end %>
+  <%= f.label :content, "Associated Gene" %>
    <%= f.text_field :gene, {:placeholder => "twist"} %>
   <%= f.label :content, "Gene Symbol"%>
    <%= f.text_field :gene_symbol, {:placeholder => "twi"}  %>
   <%= f.label :content, "Number of insertions"%>
     <%= f.text_field :copynumber %>
+  <%= f.label :p_element_backbone %>
+    <%= f.text_field :p_element_backbone%>
+  <%= f.label :regulatory_sequence %>
+    <%= f.text_field :regulatory_sequence, {:placeholder => "description or raw sequence (AATTGGCTTCA)"}%>
 
     <%= f.fields_for :expression_profiles do |profile| %>
       <p>

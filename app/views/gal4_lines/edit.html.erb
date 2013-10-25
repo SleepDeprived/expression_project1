@@ -1,23 +1,57 @@
-<h1>Edit This Record</h1>
+<h2>Edit <%= "#{@gal4.name}" %></h2>
 <!-- OPTIMIZE change this record to read the name of teh stock -->
 
 <%= form_for (@gal4) do |f| %>
-  <%= f.label "Line Name" %>
-  <%= f.text_field :name %>
-  <%= f.label :version %>
-  <%= f.text_field :version %>
-  <%= f.label "ID" %>
-  <%= @gal4.id %>
-  <%= f.label "Associated Gene" %>
-  <%= f.text_field :gene %>
-  <%= f.label "Number of p-element insertions" %>
-  <%= f.text_field :copynumber %>
-  <%= f.label "p-element backbone" %>
-  <%= f.text_field :p_element_backbone %>
-  <%= f.label "regulatory sequence" %>
-  <%= f.text_field :regulatory_sequence %>
+  <div class="twelve columns">
+    <%= f.label :name %>
+      <%= f.text_field :name %>
+    <%= f.label :version %>
+      <%= f.text_field :version %>
+    <%= f.label "ID" %>
+      <%= @gal4.id %>
+  </div>
+
+    <%#= f.fields_for :chromosome do |c| %>
+          <%#= c.label :content, "Chromosome" %>
+          <%#= c.select :chromosome_id, options_from_collection_for_select(@chromosomes, :id, :location) %>
+        <%# end %>
+
+
+  <%= f.label :content, "Associated Gene" %>
+   <%= f.text_field :gene, {:placeholder => "twist"} %>
+  <%= f.label :content, "Gene Symbol"%>
+   <%= f.text_field :gene_symbol, {:placeholder => "twi"}  %>
+  <%= f.label :content, "Number of p-element insertions"%>
+    <%= f.text_field :copynumber %>
+
+    <%= f.label :p_element_backbone %>
+    <%= f.text_field :p_element_backbone%>
+  <%= f.label :regulatory_sequence %>
+    <%= f.text_field :regulatory_sequence, {:placeholder => "description or raw sequence (AATTGGCTTCA)"}%>
+
+    <%= f.fields_for :expression_profiles do |profile| %>
+      <p>
+        <%= profile.fields_for :locations do |location| %>
+          <%= location.label :content, "Location" %>
+          <%= location.text_field :name %>
+        <% end %>
+      <!-- TO DO  add 'add location' button -->
+
+        <%= profile.label :content, "Expression begins during" %>
+          <%= profile.select :start_stage_id, options_from_collection_for_select(@stages, :id, :name, :start_stage_id) %>
+        <%= profile.label :content, "Expression ends during" %>
+        <!-- TO DO:  make the start and end stage values come up as teh default value in the selector if they have been assigned a value -->
+          <%= profile.select :end_stage_id, options_from_collection_for_select(@stages, :id, :name) %>
+        <%= profile.label :content, "Assessed using"%>
+          <%= profile.text_field :assessed_by, {:placeholder => "IF/IHC of UAS-GFP"} %>
+        <%= profile.label :content, "Comments"%>
+          <%= profile.text_field :comments %>
+      </p>
+    <% end %>
+
   <%= f.submit "Update" %>
   <%= link_to "Cancel", :back %>
 <% end %>
+
 
 

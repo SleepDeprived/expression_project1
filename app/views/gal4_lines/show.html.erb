@@ -1,27 +1,41 @@
-<h1>this shows a detailed result for the selected record</h1>
+<h2><%= @result.name %></h2>
 
-<%= label_tag "Line Name" %>
-<%= @result.name %>
 <%= label_tag "Version" %>
 <%= @result.version %>
 <%= label_tag "ID" %>
 <%= @result.id %>
 <%#= @result.chromosome.location %>
 <%= label_tag "Associated Gene"%>
-<%= @result.gene %>
+<%= @result.gene %> <span>( <%= @result.gene_symbol %> )</span>
 <%= label_tag "Number of p-element insertions" %>
 <%= @result.copynumber %>
 
 
 
-<%#= @result.expression_profile do |expression| %>
-<%#= expression.start_stage %>
-<%#= expression.end_stage %>
-<%#= expression.locations do |place| %>
-<%#= place.name %>
-<%# end %>
-<%#= expression.assessed_by %>
-<%# end %>
+<% @result.expression_profiles.each do |expression| %>
+  <div class="twelve columns">
+    <div class="eight columns">
+    <%= label_tag "Expressed in:"%>
+      <ul>
+        <% expression.locations.each do |place| %>
+          <li>
+            <%= place.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= label_tag "Expression begins during:"%>
+      <%= @start_stage %>
+      <%= @start_time %>
+    <%= label_tag "Expression ends during:"%>
+      <%= @end_stage %>
+      <%= @end_time %>
+    <%= label_tag "Assessed using:"%>
+      <%= expression.assessed_by %>
+    <%= label_tag "Comments:"%>
+      <%= expression.comments %>
+  </div>
+<% end %>
 
 <%= label_tag "p-element backbone" %>
 <%= @result.p_element_backbone %>

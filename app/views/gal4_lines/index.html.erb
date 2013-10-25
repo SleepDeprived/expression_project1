@@ -1,12 +1,21 @@
-<h1>This form will return all of the records that match a set of search terms</h1>
-
+<h2>Results</h2>
+<p class="select_a_line">Select a line below for more information</p>
 <ul>
 <% @gal4.each do |line| %>
-  <li>
+  <div class="four columns">
     <!-- image -->
-    <%= link_to "#{line.name}", line %>
-    <%= line.gene %>
-    <%= line.id %>
-  </li>
+    <div class="five columns">
+      <li><%= label_tag "Line name:"%></li>
+        <li><%= link_to "#{line.name}", line %></li>
+    </div>
+    <div class="five columns">
+      <li><%= label_tag "Associated gene:"%></li>
+        <li><%= line.gene_symbol %></li>
+    </div>
+    <div class="five columns">
+      <li><%= label_tag "Id:"%></li>
+        <li><%= line.id %></li>
+    </div>
+  </div>
 <% end %>
 </ul>

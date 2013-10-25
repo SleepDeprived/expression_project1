@@ -1,4 +1,4 @@
-<h1>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h1>
+<h3>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h3>
 <div>
   <%= form_tag("/results", method: :get) do %>
     <%= label_tag  "Search by gene name"%>
@@ -18,11 +18,10 @@
 </div>
 
 
-<h1>Stocks in My Collection:</h1>
+<a href="/gal4_lines/new" class="add_gal4">Add a new Gal4 line to the database</a>
+
+<h4>Stock Collection:</h4>
 <% @user.collections.each do |collection| %>
-  <%= collection.gal4_line.name %>
+  <%= link_to "#{collection.gal4_line.name}", collection.gal4_line.name %>
 <% end %>
-
-<a href="/gal4_lines/new">Add a new Gal4 line to the database</a>
-
 
