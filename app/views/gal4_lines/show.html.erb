@@ -1,51 +1,69 @@
-<h2><%= @result.name %></h2>
+<div class="band">
+  <div class="container">
+      <div class="sixteen columns">
 
-<%= label_tag "Version" %>
-<%= @result.version %>
-<%= label_tag "ID" %>
-<%= @result.id %>
-<%#= @result.chromosome.location %>
-<%= label_tag "Associated Gene"%>
-<%= @result.gene %> <span>( <%= @result.gene_symbol %> )</span>
-<%= label_tag "Number of p-element insertions" %>
-<%= @result.copynumber %>
+        <h2><%= @result.name %></h2>
+
+        <%= label_tag "Version" %>
+        <%= @result.version %>
+        <%= label_tag "ID" %>
+        <%= @result.id %>
+        <%#= @result.chromosome.location %>
+        <%= label_tag "Associated Gene"%>
+        <%= @result.gene %> <span>( <%= @result.gene_symbol %> )</span>
+        <%= label_tag "Number of p-element insertions" %>
+        <%= @result.copynumber %>
 
 
 
-<% @result.expression_profiles.each do |expression| %>
-  <div class="twelve columns">
-    <div class="eight columns">
-    <%= label_tag "Expressed in:"%>
-      <ul>
-        <% expression.locations.each do |place| %>
-          <li>
-            <%= place.name %>
-          </li>
+        <% @result.expression_profiles.each do |expression| %>
+          <div class="fourteen columns, expression">
+            <div class="four columns">
+              <ul>
+                <li class="two columns, offset-by-one"> <%= label_tag "Expressed in:"%> </li>
+                <% expression.locations.each do |place| %>
+                  <li class="two columns, offset-by-two">
+                    <%= place.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="five columns">
+              <%= label_tag "Expression begins during:"%>
+                <%= @start_stage %>
+                <%= @start_time %>
+            </div>
+            <div class="five columns">
+              <%= label_tag "Expression ends during:"%>
+                <%= @end_stage %>
+                <%= @end_time %>
+            </div>
+            <div class="eight columns">
+              <%= label_tag "Assessed using:"%>
+                <%= expression.assessed_by %>
+            </div>
+            <div class="eight columns">
+              <%= label_tag "Comments:"%>
+                <%= expression.comments %>
+            </div>
+          </div>
         <% end %>
-      </ul>
-    </div>
-    <%= label_tag "Expression begins during:"%>
-      <%= @start_stage %>
-      <%= @start_time %>
-    <%= label_tag "Expression ends during:"%>
-      <%= @end_stage %>
-      <%= @end_time %>
-    <%= label_tag "Assessed using:"%>
-      <%= expression.assessed_by %>
-    <%= label_tag "Comments:"%>
-      <%= expression.comments %>
-  </div>
-<% end %>
 
-<%= label_tag "p-element backbone" %>
-<%= @result.p_element_backbone %>
-<%= label_tag "regulatory sequence" %>
-<%= @result.regulatory_sequence %>
+      <div class="sixteen columns">
+        <%= label_tag "p-element backbone" %>
+        <%= @result.p_element_backbone %>
+        <%= label_tag "regulatory sequence" %>
+        <%= @result.regulatory_sequence %>
+      </div>
 
+      <div class="sixteen columns">
+        <%= link_to "edit", edit_gal4_line_path %>
 
-<%= link_to "edit", edit_gal4_line_path %>
-
-<%= form_for(@collection) do |f| %>
-<%= f.hidden_field :gal4_line_id, value: @result.id %>
-<%= f.submit "Add to Collection" %>
-<% end %>
+        <%= form_for(@collection) do |f| %>
+        <%= f.hidden_field :gal4_line_id, value: @result.id %>
+        <%= f.submit "Add to Collection" %>
+        <% end %>
+        </div>
+      </div> <!-- end band -->
+  </div> <!-- end container -->
+</div>

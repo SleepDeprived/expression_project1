@@ -22,6 +22,6 @@
 
 <h4>Stock Collection:</h4>
 <% @user.collections.each do |collection| %>
-  <%= link_to "#{collection.gal4_line.name}", collection.gal4_line.name %>
+  <%= link_to "#{collection.gal4_line.name}", "/gal4_lines/#{collection.gal4_line.id}" %>
 <% end %>
 

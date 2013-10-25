@@ -1,28 +1,40 @@
-
-<h1>expression info</h1>
-
-<%= image_tag "5053.png" %>
-
-<div class="eight columns">
-  <%= form_tag(gal4_lines_path, method: :get) do %>
-  <%= label_tag  "Search by gene name"%>
-  <%= text_field_tag "gene", nil, placeholder: "gene name" %>
-  <%= submit_tag "Search", name: "search by gene" %>
-  <% end %>
+<div class="band">
+  <div class="container">
+      <div class="ten columns, offset-by-three">
+        <h1>expression info</h1>
+        <%= image_tag "5053.png" %>
+      </div> <!-- end band -->
+  </div> <!-- end container -->
 </div>
 
-<div>
-  <%= form_tag("/results", method: :get) do %>
-  <%= label_tag "Search by location of expression" %>
-    <%= text_field_tag "location", nil, placeholder: "location" %>
-  <%#= label_tag "time of expression" %>
-    <%#= text_field_tag "time", nil, placeholder: "stage" %>
-  <%= submit_tag "Search", name: "search by location" %>
-  <% end %>
-</div>
+<div class="band">
+  <div class="container">
+    <div class="five columns, offset-by-three">
+      <%= form_tag(gal4_lines_path, method: :get) do %>
+      <%= label_tag  "Search by gene name"%>
+      <%= text_field_tag "gene", nil, placeholder: "gene name" %>
+      <%= submit_tag "Search", name: "search by gene" %>
+      <% end %>
+    </div>
+  </div> <!-- container end -->
+</div> <!-- band end -->
 
-<%#= link_to "Login", '/login' %>
+<div class="band">
+  <div class="container">
+    <div class="five columns, offset-by-three">
+      <%= form_tag("/results", method: :get) do %>
+      <%= label_tag "Search by location of expression" %>
+        <%= text_field_tag "location", nil, placeholder: "location" %>
+      <%#= label_tag "time of expression" %>
+        <%#= text_field_tag "time", nil, placeholder: "stage" %>
+      <%= submit_tag "Search", name: "search by location" %>
+      <% end %>
+    </div> <!-- column end -->
+  </div> <!-- container end -->
+</div> <!-- band end -->
 
-<%#= link_to 'Sign Up', new_user_path %>
+    <%#= link_to "Login", '/login' %>
+
+    <%#= link_to 'Sign Up', new_user_path %>
 
 
