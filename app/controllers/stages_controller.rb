@@ -1,5 +1,0 @@
-class StagesController < ApplicationController
-
-
-
-end
