@@ -8,6 +8,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'nested_form'
   # remember to run rails g nested_form:install
+gem "thin"
 
 
 # Gems used only for assets and not required
